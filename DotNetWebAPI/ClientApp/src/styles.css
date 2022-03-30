@@ -9,8 +9,18 @@ code {
   color: #e01a76;
 }
 
+body {
+    background-color: lightslategray
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: red;
+  border-color: darkred;
 }

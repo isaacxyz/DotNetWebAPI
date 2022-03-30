@@ -13,6 +13,10 @@ html {
   }
 }
 
+body {
+    background-color: lightslategray
+}
+
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgb(0, 38, 255);
 }
