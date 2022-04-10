@@ -87,10 +87,42 @@ namespace DotNetWebApi.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("total-debt")]
+        public async Task<IActionResult> GetTotalDebt()
+        {
+            var balanceResult = await _client.AccountsBalanceGetAsync(
+                new()
+                {
+                    AccessToken = _credentials.Value.AccessToken,
+                });
+
+            //decimal? totalDebt = 0;
+            //foreach (var account in balanceResult.Accounts)
+            //{
+            //    if (account.Type is AccountType.Credit or AccountType.Loan)
+            //    {
+            //        totalDebt += account.Balances.Current;
+            //    }
+            //}
+
+            var totalDebt = balanceResult.Accounts.Where(a => a.Type is AccountType.Credit or AccountType.Loan).Sum(a => a.Balances.Current);
+
+            return Ok(totalDebt);
+        }
     }
+
 
     public class PlaidCredentials : PlaidOptions
     {
         public string? AccessToken { get; set; }
+    }
+
+    public enum TestEnums
+    {
+        EnumOne,
+        EnumTwo,
+        EnumThree,
+        EnumFour,
     }
 }

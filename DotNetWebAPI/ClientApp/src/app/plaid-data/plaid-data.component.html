@@ -1,0 +1,8 @@
+<h1 id="tableLabel">Plaid Data</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="isLoading" ><em>Loading...</em></p>
+
+<button *ngIf="!isLoading" class="btn btn-primary" (click)="getBalances()">Balances</button>
+
